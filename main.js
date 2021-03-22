@@ -1,6 +1,9 @@
 var canvas = document.querySelector('canvas');
 var c = canvas.getContext('2d');
 
+
+//To be set: canvas size
+
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 
@@ -17,7 +20,6 @@ const getRandomColor = (colorArray) =>{
 }
 
 var colorArray = ['#57d3e6', '#6dc8d6', '#7bdeed', '#7ed8e6'];
-
 
 function ball (x,y,dx,dy,radius,color) {
     this.x = x;
@@ -36,6 +38,10 @@ function ball (x,y,dx,dy,radius,color) {
         } else{
             this.dy += getRandom(0.00007,0.0009)*t;
             this.dx = this.dx*(getRandom(-1.2,1.2));
+        }
+
+        if (this.x > 300|| this.x <0){
+            this.dx = - this.dx;
         }
 
         this.x += this.dx;
